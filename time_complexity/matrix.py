@@ -64,7 +64,7 @@ def max_rectangle_v2(matrix):
 nn = [10, 20, 30, 40, 50]
 
 
-def czas_v1():
+def time_v1():
     for n in nn:
         m = [[randint(0, 1) for i in range(n)] for y in range(n)]
         start = timer()
@@ -73,11 +73,11 @@ def czas_v1():
 
         stop = timer()
         Tn = stop - start
-        Fn = n**6  # złożoność obliczeniowa
+        Fn = n ** 6  # time complexity
         print(n, Tn, Fn / Tn)
 
 
-def czas_v2():
+def time_v2():
     for n in nn:
         m = [[randint(0, 1) for i in range(n)] for y in range(n)]
         start = timer()
@@ -86,26 +86,26 @@ def czas_v2():
 
         stop = timer()
         Tn = stop - start
-        Fn = n**3  # złożoność obliczeniowa
+        Fn = n ** 3  # time complexity
         print(n, Tn, Fn / Tn)
 
 
-print("funkcja v1")
-czas_v1()
+print("function v1")
+time_v1()
 
 print("")
 
-print("funkcja v2")
-czas_v2()
+print("function v2")
+time_v2()
 
-# funkcja v1
+# function v1
 # 10 0.011060099815949798 90415097.20896891
 # 20 0.23844750015996397 268402897.73247868
 # 30 2.104396300157532 346417640.0354953
 # 40 8.572474699933082 477808350.9575099
 # 50 20.53394989995286 760934943.1614164
 
-# funkcja v2
+# function v2
 # 10 0.00014560017734766006 6868123.502433845
 # 20 0.0008634000550955534 9265693.177555602
 # 30 0.001427799928933382 18910212.45544533
