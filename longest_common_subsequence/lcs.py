@@ -35,16 +35,16 @@ def print_lcs_table(x, y):
     for i in range(1, len(numbers)):
         for j in range(1, len(numbers[0])):
             result[i + 1].append(str(numbers[i][j]) + signs[i][j])
-    wynik = "\n"
+    result = "\n"
     for i in range(len(result)):
         for j in range(len(result[0])):
-            wynik += result[i][j]
+            result += result[i][j]
             if j != len(result[0]) - 1:
-                wynik += " │ "
-        wynik += "\n"
+                result += " │ "
+        result += "\n"
         if i != len(result) - 1:
-            wynik += "_____" + "______" * (len(y) + 1) + "\n"
-    print(wynik)
+            result += "_____" + "______" * (len(y) + 1) + "\n"
+    print(result)
 
 
 def lcs_results(x, y):
@@ -68,6 +68,7 @@ def lcs_results(x, y):
 
     data = lcs(x, y)
     elements = _lcs_results(x, data[0], data[1], len(x), len(y))
+
     return list(elements)
 
 
