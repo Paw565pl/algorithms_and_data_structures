@@ -1,5 +1,6 @@
-import math
 from timeit import default_timer as timer
+
+import math
 
 
 def f1(n):
@@ -52,9 +53,9 @@ def time_f1():
         start = timer()
         f1(n)
         stop = timer()
-        Tn = stop - start
-        Fn = n
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n
+        print(n, tn, fn / tn)
 
 
 def time_f2():
@@ -62,9 +63,9 @@ def time_f2():
         start = timer()
         f2(n)
         stop = timer()
-        Tn = stop - start
-        Fn = n * n
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n * n
+        print(n, tn, fn / tn)
 
 
 def time_f3():
@@ -72,9 +73,9 @@ def time_f3():
         start = timer()
         f3(n)
         stop = timer()
-        Tn = stop - start
-        Fn = n * n
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n * n
+        print(n, tn, fn / tn)
 
 
 def time_f4():
@@ -82,9 +83,9 @@ def time_f4():
         start = timer()
         f4(n)
         stop = timer()
-        Tn = stop - start
-        Fn = n * math.log(n, 2)
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n * math.log(n, 2)
+        print(n, tn, fn / tn)
 
 
 def time_f5():
@@ -92,18 +93,18 @@ def time_f5():
         start = timer()
         f5(n)
         stop = timer()
-        Tn = stop - start
-        Fn = math.log(n, 2)
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = math.log(n, 2)
+        print(n, tn, fn / tn)
 
 
 # other time functions:
 
-# Fn=math.log(n,2)
-# Fn=n
-# Fn=100*n
-# Fn=n*math.log(n,2)
-# Fn=n*n
+# fn=math.log(n,2)
+# fn=n
+# fn=100*n
+# fn=n*math.log(n,2)
+# fn=n*n
 
 time_f1()
 print("")

@@ -22,34 +22,34 @@ def max_rectangle_v1(n, M):
 
 
 def max_rectangle_v2(matrix):
-    histographs = []
-    histograph = [0] * len(matrix)
+    histograms = []
+    histogram = [0] * len(matrix)
 
     for row in range(len(matrix)):
         for item in range(len(matrix)):
             if matrix[row][item] != 0:
-                histograph[item] += 1
+                histogram[item] += 1
             else:
-                histograph[item] = 0
+                histogram[item] = 0
 
-        histographs.append(histograph.copy())
+        histograms.append(histogram.copy())
 
     max_area = 0
 
-    for row in range(len(histographs)):
-        for item in range(len(histographs)):
-            bar_value = histographs[row][item]
+    for row in range(len(histograms)):
+        for item in range(len(histograms)):
+            bar_value = histograms[row][item]
             count = 1
 
             # if bar_value == 0:
             #     break
 
-            for left in reversed(histographs[row][:item]):
+            for left in reversed(histograms[row][:item]):
                 if left < bar_value:
                     break
                 else:
                     count += 1
-            for right in histographs[row][item + 1 :]:
+            for right in histograms[row][item + 1 :]:
                 if right < bar_value:
                     break
                 else:
@@ -66,15 +66,15 @@ nn = [10, 20, 30, 40, 50]
 
 def time_v1():
     for n in nn:
-        m = [[randint(0, 1) for i in range(n)] for y in range(n)]
+        m = [[randint(0, 1) for _ in range(n)] for _ in range(n)]
         start = timer()
 
         max_rectangle_v1(n, m)
 
         stop = timer()
-        Tn = stop - start
-        Fn = n ** 6  # time complexity
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n ** 6  # time complexity
+        print(n, tn, fn / tn)
 
 
 def time_v2():
@@ -85,9 +85,9 @@ def time_v2():
         max_rectangle_v2(m)
 
         stop = timer()
-        Tn = stop - start
-        Fn = n ** 3  # time complexity
-        print(n, Tn, Fn / Tn)
+        tn = stop - start
+        fn = n ** 3  # time complexity
+        print(n, tn, fn / tn)
 
 
 print("function v1")
