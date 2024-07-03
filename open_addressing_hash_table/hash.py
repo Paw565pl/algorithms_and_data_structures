@@ -1,7 +1,7 @@
-def insert(data, size, procent, method):
+def insert(data, size, percent, method):
     output_list = [[]] * size
     number_of_tries = 0
-    for i in range(int(size * procent / 100)):
+    for i in range(int(size * percent / 100)):
         success = False
         hash_result = 0
         j = 0
@@ -18,7 +18,7 @@ def insert(data, size, procent, method):
                 if j == size:
                     break
 
-    output = f"{output_list}\nAverage number of attempts for {method.__name__}: {round(number_of_tries / (size * procent / 100), 4)} at {procent}% full."
+    output = f"{output_list}\nAverage number of attempts for {method.__name__}: {round(number_of_tries / (size * percent / 100), 4)} at {percent}% full."
 
     return output
 
