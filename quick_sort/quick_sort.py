@@ -1,7 +1,7 @@
+from copy import deepcopy
 from random import randint
 from sys import setrecursionlimit
 from timeit import default_timer as timer
-from copy import deepcopy
 
 
 def insertion_sort(A):
@@ -37,14 +37,14 @@ def quick_sort(A, p, r):
 
 
 def better_quick_sort(A, c):
-    def quickSort(A, p, r, c):
+    def quick_sort(A, p, r, c):
         if p < r and c < r - p + 1:
             q = partition(A, p, r)
-            quickSort(A, p, q, c)
-            quickSort(A, q + 1, r, c)
+            quick_sort(A, p, q, c)
+            quick_sort(A, q + 1, r, c)
         return A
 
-    almost_sorted = quickSort(A, 0, len(A) - 1, c)
+    almost_sorted = quick_sort(A, 0, len(A) - 1, c)
     insertion_sort(almost_sorted)
 
     return A
@@ -68,7 +68,7 @@ def random_data():
 
         time2 = stop2 - start2
 
-        print("quickSort", n, time1, "|", "betterQuickSort", n, time2)
+        print("quick_sort", n, time1, "|", "better_quick_sort", n, time2)
 
 
 def unfavorable_data():
@@ -89,7 +89,7 @@ def unfavorable_data():
 
         time2 = stop2 - start2
 
-        print("quickSort", n, time1, "|", "betterQuickSort", n, time2)
+        print("quick_sort", n, time1, "|", "better_quick_sort", n, time2)
 
 
 setrecursionlimit(1000000000)
@@ -101,13 +101,13 @@ print("")
 unfavorable_data()
 
 # Random data
-# quickSort 1000 0.001679699998931028  |  betterQuickSort 1000 0.0013226000010035932
-# quickSort 5000 0.009902100006002001  |  betterQuickSort 5000 0.00807110000459943
-# quickSort 10000 0.023759999996400438  |  betterQuickSort 10000 0.020386599993798882
-# quickSort 15000 0.03172189999895636  |  betterQuickSort 15000 0.02650740000535734
+# quick_sort 1000 0.001679699998931028  |  better_quick_sort 1000 0.0013226000010035932
+# quick_sort 5000 0.009902100006002001  |  better_quick_sort 5000 0.00807110000459943
+# quick_sort 10000 0.023759999996400438  |  better_quick_sort 10000 0.020386599993798882
+# quick_sort 15000 0.03172189999895636  |  better_quick_sort 15000 0.02650740000535734
 
 # Unfavorable data
-# quickSort 1000 0.039884099998744205  |  betterQuickSort 1000 0.039559700002428144
-# quickSort 5000 1.0339317000034498  |  betterQuickSort 5000 1.0304617000074359
-# quickSort 10000 4.12447599999723  |  betterQuickSort 10000 4.180870000011055
-# quickSort 15000 9.263683299999684  |  betterQuickSort 15000 9.429881999996724
+# quick_sort 1000 0.039884099998744205  |  better_quick_sort 1000 0.039559700002428144
+# quick_sort 5000 1.0339317000034498  |  better_quick_sort 5000 1.0304617000074359
+# quick_sort 10000 4.12447599999723  |  better_quick_sort 10000 4.180870000011055
+# quick_sort 15000 9.263683299999684  |  better_quick_sort 15000 9.429881999996724
