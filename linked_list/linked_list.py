@@ -65,15 +65,15 @@ class LinkedList:
         return self
 
 
-list = LinkedList()
-list.insert("abc", "def", "c")
-list.insert("def")
-list.print()
-list.delete(list.search("def"))
-list.print()
-list.insert("abc", "def", "bc", "bc", "c")
-list.print()
-list.deduplication().print()
+list0 = LinkedList()
+list0.insert("abc", "def", "c")
+list0.insert("def")
+list0.print()
+list0.delete(list0.search("def"))
+list0.print()
+list0.insert("abc", "def", "bc", "bc", "c")
+list0.print()
+list0.deduplication().print()
 
 print("")
 
