@@ -1,6 +1,7 @@
-import matplotlib.pyplot as plt
-import networkx as nx
 from random import sample
+
+import networkx as nx
+from matplotlib import pyplot as plt
 
 
 class Node:
@@ -37,15 +38,16 @@ class Tree:
 
     def _search(self, key, node):
         if not node:
-            print(f"klucza {key} nie ma w drzewie!")
+            print(f"key {key} is not present in the tree!")
         elif node.key == key:
-            print(f"znaleziono klucz {key} w drzewie!")
+            print(f"found key {key} in the tree")
         elif node.key > key:
             return self._search(key, node.left)
         else:
             return self._search(key, node.right)
 
-    def find_min(self, node):
+    @staticmethod
+    def find_min(node):
         while node.left:
             node = node.left
         return node
@@ -114,11 +116,11 @@ class Tree:
 
         plt.figure(figsize=(fig_width, fig_height))
         nx.draw_networkx(
-            graph, pos=pos, with_labels=True, node_color="#90EE90", font_size=18
+            graph, pos=pos, with_labels=True, node_color="#90EE90", font_size=20
         )
 
+        plt.title(f"Binary tree of height {self.height()}", fontsize=32)
         plt.savefig(filename, bbox_inches="tight")
-        # plt.show()
         plt.close("all")
 
     def _add_to_graph(self, graph, count):
@@ -182,20 +184,18 @@ tree = Tree()
 for size in [500, 1000, 2000]:
     for word in sample(words, size):
         tree.insert(word)
-    print(f"wysokość drzewa dla ilości słów {size} wynosi:", tree.height())
+    print(f"Height of the tree for the number of words {size} is:", tree.height())
     # tree.print()
-    tree.draw(f"drzewo-{size}.png")
     tree.clean()
 
 for word in ["banana", "apple", "cherry", "chocolate", "orange", "strawberry", "bbb"]:
     tree.insert(word)
-print(f"wysokość drzewa:", tree.height())
-# tree.print()
-tree.draw("drzewo-przed-usunieciem.png")
-tree.delete("banana")
-tree.draw(f"drzewo-po-usunieciem.png")
 
-# wyniki mogą się różnić ze względu na losowość danych
-# Wysokość drzewa dla ilości słów 500 wynosi: 19
-# Wysokość drzewa dla ilości słów 1000 wynosi: 21
-# Wysokość drzewa dla ilości słów 2000 wynosi: 30
+tree.draw("tree-before-removal.png")
+tree.delete("banana")
+tree.draw(f"tree-after-removal.png")
+
+# results may vary due to randomness of data
+# Height of the tree for the number of words 500 is: 26
+# Height of the tree for the number of words 1000 is: 23
+# Height of the tree for the number of words 2000 is: 26
